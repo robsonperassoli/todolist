@@ -31,4 +31,4 @@ java -jar todo-0.0.1.jar
 ```
 
 ## Enjoy!
-If everything went fine you should be capable of access the application in (http://localhost:8080)
+If everything went fine you should be capable of access the application in [http://localhost:8080](http://localhost:8080)
