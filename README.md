@@ -25,7 +25,7 @@ mvn clean install spring-boot:run
 ```
 
 ## Run from dist jar 
-If you want to run the todolist from the distribution jar download the file at (https://github.com/robsonperassoli/todolist/releases/download/0.0.1/todo-0.0.1.jar) and run the file with the command:
+If you want to run the todolist from the distribution is necessary to download the [jar file](https://github.com/robsonperassoli/todolist/releases/download/0.0.1/todo-0.0.1.jar) and run with the command:
 ```bash
 java -jar todo-0.0.1.jar
 ```
