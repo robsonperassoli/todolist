@@ -1,0 +1,64 @@
+<div class="row">
+	<div class="col-sm-12">
+		<label for="name">Name</label>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-10">
+		<input type="text" id="name" ng-model="todoList.name" placeholder="Type the name of todo list" class="form-control" />
+	</div>
+	<div class="col-sm-2">
+		<button ng-click="create()" ng-show="isANewTodoList()" class="btn btn-primary pull-right" >Create!</button>
+		<button ng-click="update()" ng-show="!isANewTodoList()" class="btn btn-primary  pull-right" >Update!</button>
+	</div>
+</div>
+
+<div class="row" ng-show="!isANewTodoList()">
+	<div class="col-sm-12">
+		<h3>Tasks</h3>
+	</div>
+</div>
+
+<div class="row" ng-show="!isANewTodoList()">
+	<div class="col-sm-12">
+		<ul class="list-group" >
+			<li ng-repeat="task in tasks" class="list-group-item">
+				<label ng-class="{'task-done': task.done}">
+					<input type="checkbox" ng-model="task.done" ng-change="updateThisTask(task)" /> 
+					{{task.description}} 
+				</label>
+				<div class=" pull-right">
+					<button ng-click="editTask(task)" class="btn btn-xs btn-success" >
+						<i class="glyphicon glyphicon-edit"></i>
+						Edit
+					</button>
+					<button ng-click="deleteTask(task.id)" class="btn btn-xs btn-danger">
+						<i class="glyphicon glyphicon-remove"></i>
+						Delete
+					</button>	
+				</div>			
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="row" ng-show="!isANewTodoList()">
+	<div class="col-sm-12">
+		<label for="task-description">Type the task description</label>
+	</div>
+</div>
+
+<div class="row" ng-show="!isANewTodoList()">
+	<div class="col-sm-10">
+		<input type="text" ng-model="editingTask.description" id="task-description"  class="form-control "/> 
+	</div>
+
+	<div class="col-sm-2">
+		<button ng-show="editingTask.id === undefined" ng-click="createTask()" class="btn btn-primary pull-right"> 
+			<i class="glyphicon glyphicon-ok"></i> Create!
+		</button>
+		<button ng-show="editingTask.id !== undefined" ng-click="updateTask()" class="btn btn-primary pull-right">
+			<i class="glyphicon glyphicon-ok"></i> Update!
+		</button>
+	</div>
+</div>

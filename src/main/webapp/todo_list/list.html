@@ -1,0 +1,9 @@
+<ul class="list-group" >
+	<li class="list-group-item" ng-repeat="todolist in list">
+		<a href="#/todo-list/{{todolist.id}}">{{todolist.name}}</a> 
+		<button class="btn btn-default btn-xs pull-right" ng-click="delete(todolist.id)">
+			<i class="glyphicon glyphicon-remove"></i>
+			Delete
+		</button>
+	</li>
+</ul>
