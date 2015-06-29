@@ -19,25 +19,25 @@ angular.module('todoApp.todo_list', ['ngRoute'])
 .factory('TodoListService', ['$http', function ($http){
 	return {
 		list: function (){
-			return $http.get('http://localhost:8080/todo-lists')
+			return $http.get('/todo-lists')
 						.then(function (result){
 							return result.data;
 						});
 		},
 		load: function (id){
-			return $http.get('http://localhost:8080/todo-lists/' + id)
+			return $http.get('/todo-lists/' + id)
 						.then(function (result){
 							return result.data;
 						});
 		},
 		update: function (todoList){
-			return $http.put('http://localhost:8080/todo-lists/' + todoList.id, todoList)
+			return $http.put('/todo-lists/' + todoList.id, todoList)
 						.then(function (result){
 							return result.data;
 						});
 		},
 		create: function (todoList){
-			return $http.post('http://localhost:8080/todo-lists', todoList)
+			return $http.post('/todo-lists', todoList)
 						.then(function (result) {
 							var location = result.headers('Location');
 
@@ -48,7 +48,7 @@ angular.module('todoApp.todo_list', ['ngRoute'])
 					    });
 		},
 		delete: function (id){
-			return $http.delete('http://localhost:8080/todo-lists/' + id)
+			return $http.delete('/todo-lists/' + id)
 						.then(function (result){
 							return result.data;
 						});
@@ -59,13 +59,13 @@ angular.module('todoApp.todo_list', ['ngRoute'])
 .factory('TaskService', ['$http', function($http){
 	return {
 		list: function(todoListId) {
-			return $http.get('http://localhost:8080/todo-lists/' + todoListId + '/tasks')
+			return $http.get('/todo-lists/' + todoListId + '/tasks')
 					.then(function(result){
 						return result.data;
 					});
 		},
 		create: function(todoListId, newTask) {
-			return $http.post('http://localhost:8080/todo-lists/' + todoListId + '/tasks', newTask)
+			return $http.post('/todo-lists/' + todoListId + '/tasks', newTask)
 						.then(function (result) {
 							var location = result.headers('Location');
 
@@ -76,13 +76,13 @@ angular.module('todoApp.todo_list', ['ngRoute'])
 					    });
 		},
 		update: function (todoListId, task) {
-			return $http.put('http://localhost:8080/todo-lists/' + todoListId + '/tasks/' + task.id, task)
+			return $http.put('/todo-lists/' + todoListId + '/tasks/' + task.id, task)
 			.then(function (result){
 				return result.data;
 			});
 		},
 		delete: function (todoListId, taskId){
-			return $http.delete('http://localhost:8080/todo-lists/' + todoListId + '/tasks/' + taskId)
+			return $http.delete('/todo-lists/' + todoListId + '/tasks/' + taskId)
 		}
 	}
 }])
